@@ -1,0 +1,13 @@
+.mates-games {
+  margin-top: 40px;
+}
+
+.mates-games__game {
+  list-style-type: none;
+  font-size: 22px;
+  text-align: center;
+}
+
+.mates-games__title {
+  text-align: center;
+}

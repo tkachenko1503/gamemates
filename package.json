@@ -1,0 +1,26 @@
+{
+  "name": "gamemates",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:server": "nodemon server/index.js",
+    "dev:client": "parcel client/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "0.18.0",
+    "express": "4.16.4",
+    "morgan": "1.9.1",
+    "nodemon": "1.18.9",
+    "parcel-bundler": "1.11.0",
+    "ramda": "0.26.1",
+    "react": "16.7.0",
+    "react-dom": "16.7.0"
+  },
+  "devDependencies": {
+    "sass": "1.16.1"
+  }
+}

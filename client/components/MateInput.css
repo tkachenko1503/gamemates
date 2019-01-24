@@ -1,0 +1,20 @@
+.mate-input {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.mate-input__editor {
+  height: 50px;
+  border-radius: 5px;
+  min-width: 300px;
+  font-size: 20px;
+}
+
+.mate-input__submit {
+  height: 50px;
+  border-radius: 5px;
+  margin: 0 10px;
+  padding: 0 10px;
+  font-size: 20px;
+  background-color: #bce8fc;
+}
