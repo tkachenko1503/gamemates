@@ -1,8 +1,8 @@
-import React from 'react';
-import * as r from 'ramda';
-import './MatesGames.css';
+import React from "react";
+import * as r from "ramda";
+import "./MatesGames.css";
 
-const MatesGames = ({games}) => {
+const MatesGames = ({ games }) => {
   if (games.length === 0) {
     return (
       <section className="mates-games">
@@ -16,14 +16,14 @@ const MatesGames = ({games}) => {
       <h3 className="mates-games__title">You can play those games together:</h3>
 
       <ul>
-        {r.map((game) => (
-          <li
-            key={game.appid}
-            className="mates-games__game"
-          >
-            {game.name}
-          </li>
-        ), games)}
+        {r.map(
+          game => (
+            <li key={game.appid} className="mates-games__game">
+              {game.name}
+            </li>
+          ),
+          games
+        )}
       </ul>
     </section>
   );

@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev:server": "nodemon server/index.js",
-    "dev:client": "parcel client/index.html"
+    "dev:client": "parcel client/index.html",
+    "build": "parcel build client/index.html",
+    "start": "npm run build && node server/index.js"
   },
   "keywords": [],
   "author": "",
