@@ -3,18 +3,26 @@
   margin-bottom: 20px;
 }
 
+.mate-input__content {
+  display: flex;
+  align-items: center;
+}
+
 .mate-input__editor {
+  outline: none;
   height: 50px;
-  border-radius: 5px;
+  border: 0;
+  border-bottom: 2px solid var(--secondary-color);
   min-width: 300px;
-  font-size: 20px;
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+.mate-input__editor::placeholder {
+  color: var(--mute-color);
 }
 
 .mate-input__submit {
-  height: 50px;
-  border-radius: 5px;
-  margin: 0 10px;
-  padding: 0 10px;
-  font-size: 20px;
-  background-color: #bce8fc;
+  margin-left: 20px;
+  font-size: 40px;
 }

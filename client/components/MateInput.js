@@ -1,16 +1,24 @@
 import React from "react";
 import * as r from "ramda";
+import Button from "./Button";
 import "./MateInput.css";
+
+const extractValue = r.pipe(
+  r.trim,
+  r.split("/"),
+  r.last
+);
 
 const MateInput = ({ submit }) => {
   return (
     <section className="mate-input">
       <form
+        className="mate-input__content"
         onSubmit={event => {
           event.preventDefault();
           const form = event.target;
           const input = form.elements.mateInput;
-          const value = r.trim(input.value);
+          const value = extractValue(input.value);
 
           if (value.length) {
             submit(value);
@@ -23,11 +31,12 @@ const MateInput = ({ submit }) => {
           name="mateInput"
           className="mate-input__editor"
           placeholder="Enter existing steam username"
+          autoComplete="off"
         />
 
-        <button type="submit" className="mate-input__submit">
-          Add
-        </button>
+        <Button type="submit" className="mate-input__submit">
+          +
+        </Button>
       </form>
     </section>
   );

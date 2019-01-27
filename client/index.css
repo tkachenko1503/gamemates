@@ -1,5 +1,7 @@
+/* reset */
 * {
   box-sizing: border-box;
+  font-family: "VT323", monospace;
 }
 
 html,
@@ -7,6 +9,20 @@ body,
 ul {
   margin: 0;
   padding: 0;
+  --primary-color: #1e2fac;
+  --secondary-color: #523f64;
+  --action-color: #ffcd57;
+  --action-hover-color: #ffb812;
+  --action-secondary-color: #e45a73;
+  --mute-color: #93748c;
+}
+
+body {
+  color: var(--primary-color);
+}
+
+li {
+  list-style-type: none;
 }
 
 .app {
@@ -14,4 +30,12 @@ ul {
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
+}
+
+.app__title {
+  font-size: 52px;
+}
+
+.app__loader {
+  margin-top: 50px;
 }

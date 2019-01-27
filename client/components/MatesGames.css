@@ -1,13 +1,24 @@
 .mates-games {
   margin-top: 40px;
+  text-align: center;
 }
 
 .mates-games__game {
-  list-style-type: none;
-  font-size: 22px;
-  text-align: center;
+  font-size: 26px;
+}
+
+.mates-games__reset {
+  margin: 30px 0;
 }
 
 .mates-games__title {
-  text-align: center;
+  font-size: 20px;
+}
+
+.mates-games__title_lined {
+  text-decoration: underline;
+}
+
+.mates-games__title_no-result {
+  color: var(--action-secondary-color);
 }

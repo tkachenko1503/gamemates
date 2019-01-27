@@ -1,25 +1,35 @@
 import React from "react";
 import * as r from "ramda";
+import Button from "./Button";
 import "./Mates.css";
 
-const Mates = ({ mates, searchGames }) => {
+const renderMate = r.curry((removeMate, mate, id) => (
+  <li key={id} className="mates__mate">
+    <span className="mates__mate-name">{mate}</span>
+    <span className="mates__mate-remove" onClick={() => removeMate(id)}>
+      &times;
+    </span>
+  </li>
+));
+
+const Mates = ({ mates, searchGames, removeMate, loading }) => {
   return (
     <section className="mates">
       <ul>
-        {r.map(
-          mate => (
-            <li key={mate} className="mates__name">
-              {mate}
-            </li>
-          ),
-          mates
-        )}
+        {r.pipe(
+          r.mapObjIndexed(renderMate(removeMate)),
+          r.values
+        )(mates)}
       </ul>
 
-      {mates.length > 1 && (
-        <button onClick={searchGames} className="mates__search">
-          Search
-        </button>
+      {r.values(mates).length > 1 && (
+        <Button
+          onClick={searchGames}
+          disabled={loading}
+          className="mates__search"
+        >
+          Find Games
+        </Button>
       )}
     </section>
   );

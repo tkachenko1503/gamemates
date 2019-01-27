@@ -3,15 +3,29 @@
   text-align: center;
 }
 
-.mates__name {
-  font-size: 20px;
-  list-style-type: none;
+.mates__mate {
+  margin: 6px 0;
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mates__mate-name {
+  font-size: 24px;
+  max-width: 260px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.mates__mate-remove {
+  font-size: 28px;
+  margin-left: 20px;
+  cursor: pointer;
+  color: var(--action-secondary-color);
 }
 
 .mates__search {
-  font-size: 20px;
   margin-top: 20px;
-  padding: 6px 20px;
-  border-radius: 5px;
-  background-color: #bce8fc;
 }

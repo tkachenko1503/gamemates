@@ -86,18 +86,13 @@ const filterNotMultiplayerGames = r.pipe(
   r.map(r.pick(["name", "appid"]))
 );
 
-const responseWithMatesGames = r.curry((res, matesGames) => {
-  res.status(200).json({ games: matesGames || [] });
-});
-
 const extractAxiosResponse = r.map(r.path(["data", "response"]));
 const extractAxiosData = r.map(r.prop("data"));
 
-app.post("/mates", (req, res) => {
-  const mates = req.body.mates || ["gwellir", "molotoko", "Tryr"];
+const getGamesByAllMates = mates => {
   const matesCount = mates.length;
 
-  axios
+  return axios
     .all(requestAllSteamIds(mates))
     .then(extractAxiosResponse)
     .then(extractIds)
@@ -107,8 +102,16 @@ app.post("/mates", (req, res) => {
     .then(requestGamesTags)
     .then(gamesRequests => axios.all(gamesRequests))
     .then(extractAxiosData)
-    .then(filterNotMultiplayerGames)
-    .then(responseWithMatesGames(res))
+    .then(filterNotMultiplayerGames);
+};
+
+app.post("/mates", (req, res) => {
+  const mates = req.body.mates || [];
+
+  getGamesByAllMates(mates)
+    .then(matesGames => {
+      res.status(200).json({ games: matesGames || [] });
+    })
     .catch(error => {
       console.log("Game Mates error - ", error.message);
       res.status(400).json({ message: error.message });

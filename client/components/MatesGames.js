@@ -1,19 +1,24 @@
 import React from "react";
 import * as r from "ramda";
+import Button from "./Button";
 import "./MatesGames.css";
 
-const MatesGames = ({ games }) => {
+const MatesGames = ({ games, reset }) => {
   if (games.length === 0) {
     return (
       <section className="mates-games">
-        <h3 className="mates-games__title">No matching games found</h3>
+        <h3 className="mates-games__title mates-games__title_no-result">
+          No matching games found
+        </h3>
       </section>
     );
   }
 
   return (
     <section className="mates-games">
-      <h3 className="mates-games__title">You can play those games together:</h3>
+      <h3 className="mates-games__title mates-games__title_lined">
+        You can play those games together:
+      </h3>
 
       <ul>
         {r.map(
@@ -25,6 +30,10 @@ const MatesGames = ({ games }) => {
           games
         )}
       </ul>
+
+      <Button onClick={reset} className="mates-games__reset">
+        Reset
+      </Button>
     </section>
   );
 };
