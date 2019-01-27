@@ -5,7 +5,7 @@ const axios = require("axios");
 const r = require("ramda");
 const morgan = require("morgan");
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const STEAM_KEY = "8738270D3B5D8959A13E1BC255D5702A";
 const STEAM_ID_URL =
   "http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/";
